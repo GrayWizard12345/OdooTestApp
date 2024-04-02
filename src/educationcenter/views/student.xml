@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="educationcenter_student_tree" model="ir.ui.view">
+        <field name="name">educationcenter.student.tree</field>
+        <field name="model">educationcenter.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="groups"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="educationcenter_student_edit_root" model="ir.actions.act_window">
+        <field name="name">students</field>
+        <field name="res_model">educationcenter.student</field>
+        <field name="view_mode">tree,form,pivot</field>
+    </record>
+
+
+    <menuitem id="educationcenter_students"
+          name="Students"
+          parent="educationcenter_root"
+          action="educationcenter_student_edit_root"
+    />
+
+
+</odoo>

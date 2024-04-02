@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="educationcenter_group_tree" model="ir.ui.view">
+        <field name="name">educationcenter.group.tree</field>
+        <field name="model">educationcenter.course_group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="group_id"/>
+                <field name="course_name"/>
+                <field name="teacher_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="educationcenter_group_from" model="ir.ui.view">
+        <field name="name">educationcenter.group.form</field>
+        <field name="model">educationcenter.course_group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="group_id"/>
+                        <field name="course"/>
+                        <field name="teacher"/>
+                        <field name="students" widget="many2many"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="educationcenter_group_edit_root" model="ir.actions.act_window">
+        <field name="name">Groups</field>
+        <field name="res_model">educationcenter.course_group</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+
+    <menuitem id="educationcenter_groups"
+          name="Groups"
+          parent="educationcenter_root"
+          action="educationcenter_group_edit_root"
+    />
+
+
+</odoo>

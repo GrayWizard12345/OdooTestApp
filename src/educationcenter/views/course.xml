@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="educationcenter_course_tree" model="ir.ui.view">
+        <field name="name">educationcenter.course.tree</field>
+        <field name="model">educationcenter.course</field>
+        <field name="arch" type="xml">
+            <tree>
+                 <field name="name"/>
+                 <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="educationcenter_course_root" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">educationcenter.course</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="educationcenter_courses"
+          name="Courses"
+          parent="educationcenter_root"
+          action="educationcenter_course_root"
+    />
+
+
+</odoo>
