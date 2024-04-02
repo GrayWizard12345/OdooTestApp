@@ -16,3 +16,4 @@ class Teacher(models.Model):
     name = fields.Char(string="Name")
     email = fields.Char(string="Email")
     groups = fields.One2many('educationcenter.course_group', 'teacher')
+    salary = fields.Float(string="Salary")

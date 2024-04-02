@@ -16,3 +16,5 @@ class Student(models.Model):
     name = fields.Char(string="Name")
     email = fields.Char(string="Email")
     groups = fields.Many2many('educationcenter.course_group')
+
+    payments = fields.One2many('educationcenter.payment', 'student')

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="educationcenter_payment_tree" model="ir.ui.view">
+        <field name="name">educationcenter.payment.tree</field>
+        <field name="model">educationcenter.payment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_name"/>
+                <field name="course_name"/>
+                <field name="group_id"/>
+                <field name="payment_date"/>
+                <field name="paid_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="educationcenter_payment_search" model="ir.ui.view">
+        <field name="name">educationcenter.payment.search</field>
+        <field name="model">educationcenter.payment</field>
+        <field name="arch" type="xml">
+            <search>
+                <separator/>
+                <field name="student_name"/>
+                <field name="course_name"/>
+                <field name="group_id"/>
+                <filter string="This Week" name="this_week"
+                                domain="[('payment_date','&lt;',(context_today()+relativedelta(days=7)).strftime('%Y-%m-%d 23:59:59')), ('payment_date','&gt;=',context_today().strftime('%Y-%m-%d 00:00:00'))]"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="educationcenter_payment_from" model="ir.ui.view">
+        <field name="name">educationcenter.payment.form</field>
+        <field name="model">educationcenter.payment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="student"/>
+                        <field name="course_group"/>
+                        <field name="is_paid"/>
+                        <field name="paid_amount"/>
+                        <field name="comment"/>
+                        <separator/>
+                        <button name="print_recipe"
+                                string="Print Recipe"
+                                type="object"
+                                icon="fa-print"
+                                groups="educationcenter.group_administrator"
+                        />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="educationcenter_payments_graph_vew" model="ir.ui.view" >
+        <field name="name">educationcenter.payment.graph</field>
+        <field name="model">educationcenter.payment</field>
+        <field name="arch" type="xml">
+            <graph string="Payments Graph" type="bar">
+                <field name="paid_amount"/>
+                <field name="course_group"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="educationcenter_payment_edit_root" model="ir.actions.act_window">
+        <field name="name">Payments</field>
+        <field name="res_model">educationcenter.payment</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+    <menuitem id="educationcenter_payments"
+          name="Payments"
+          parent="educationcenter_root"
+          action="educationcenter_payment_edit_root"
+    />
+
+
+</odoo>

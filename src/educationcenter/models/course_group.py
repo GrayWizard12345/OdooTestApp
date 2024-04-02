@@ -19,3 +19,5 @@ class CourseGroup(models.Model):
     students = fields.Many2many('educationcenter.student')
     teacher = fields.Many2one('educationcenter.teacher')
     teacher_name = fields.Char(string="Teacher Name", related="teacher.name")
+
+    payments = fields.One2many('educationcenter.payment', 'course_group')

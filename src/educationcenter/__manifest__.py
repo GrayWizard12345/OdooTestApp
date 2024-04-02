@@ -21,6 +21,7 @@
         'views/teacher.xml',
         'views/student.xml',
         'views/group.xml',
+        'views/payment.xml',
 
     ],
     # data files containing optionally loaded demonstration data
