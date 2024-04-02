@@ -14,7 +14,7 @@ This Odoo addon automates payments for an education center. It includes models f
 1. Clone this repository to your Odoo addons directory:
 
    ```bash
-   git clone https://github.com/your-repo/education_center_payments.git
+   git clone https://github.com/GrayWizard12345/OdooTestApp.git
    ```
 
 2. Restart your Odoo server.
